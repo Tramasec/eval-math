@@ -137,4 +137,12 @@ class EvalMathTest extends TestCase
             ['1<=2', 1]
         ];
     }
+
+    public function testComplexEquations()
+    {
+        $e = new EvalMath();
+        $e->e('a=2');
+        $res = $e->e('5+if(a>1,10,15)');
+        $this->assertEquals(15, $res);
+    }
 }
